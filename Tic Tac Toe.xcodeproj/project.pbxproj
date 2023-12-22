@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110D28182B3396D000ED7B13 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D28172B3396D000ED7B13 /* SettingsViewController.swift */; };
+		119679E42B20EF4C00793FF7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119679E32B20EF4C00793FF7 /* Model.swift */; };
+		119679E62B2B7C1000793FF7 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119679E52B2B7C1000793FF7 /* Alerts.swift */; };
+		119679E82B33557000793FF7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119679E72B33557000793FF7 /* MenuViewController.swift */; };
 		11E19FDB2B0137C5006F863B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E19FDA2B0137C5006F863B /* AppDelegate.swift */; };
 		11E19FDD2B0137C5006F863B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E19FDC2B0137C5006F863B /* SceneDelegate.swift */; };
 		11E19FDF2B0137C5006F863B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E19FDE2B0137C5006F863B /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110D28172B3396D000ED7B13 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		119679E32B20EF4C00793FF7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		119679E52B2B7C1000793FF7 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		119679E72B33557000793FF7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		11E19FD72B0137C5006F863B /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E19FDA2B0137C5006F863B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11E19FDC2B0137C5006F863B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +67,11 @@
 				11E19FDA2B0137C5006F863B /* AppDelegate.swift */,
 				11E19FDC2B0137C5006F863B /* SceneDelegate.swift */,
 				11E19FDE2B0137C5006F863B /* ViewController.swift */,
+				119679E72B33557000793FF7 /* MenuViewController.swift */,
+				119679E52B2B7C1000793FF7 /* Alerts.swift */,
+				119679E32B20EF4C00793FF7 /* Model.swift */,
 				11E19FE02B0137C5006F863B /* Main.storyboard */,
+				110D28172B3396D000ED7B13 /* SettingsViewController.swift */,
 				11E19FE32B0137C6006F863B /* Assets.xcassets */,
 				11E19FE52B0137C6006F863B /* LaunchScreen.storyboard */,
 				11E19FE82B0137C6006F863B /* Info.plist */,
@@ -139,8 +151,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E19FDF2B0137C5006F863B /* ViewController.swift in Sources */,
+				119679E82B33557000793FF7 /* MenuViewController.swift in Sources */,
+				110D28182B3396D000ED7B13 /* SettingsViewController.swift in Sources */,
+				119679E62B2B7C1000793FF7 /* Alerts.swift in Sources */,
 				11E19FDB2B0137C5006F863B /* AppDelegate.swift in Sources */,
 				11E19FDD2B0137C5006F863B /* SceneDelegate.swift in Sources */,
+				119679E42B20EF4C00793FF7 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nikita-volya.Tic-Tac-Toe";
+				PRODUCT_BUNDLE_IDENTIFIER = "vera-volya.Tic-Tac-Toe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -328,7 +344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nikita-volya.Tic-Tac-Toe";
+				PRODUCT_BUNDLE_IDENTIFIER = "vera-volya.Tic-Tac-Toe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
