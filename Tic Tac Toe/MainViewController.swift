@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var button6: UIButton!
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var TurnImage: UIImageView!
+    @IBOutlet weak var TurnLabel: UILabel!
     
     @IBOutlet var buttons: [UIButton]!
     
@@ -29,11 +31,12 @@ class ViewController: UIViewController {
     var player = Player()
     var PC = Player()
     var diffarr = ["Лёгкий","Нормальный","Сложный","Непобедимый"]
-    let dif = Int(UserDefaults.standard.string(forKey: "DifLevel")!)!
+    let dif = UserDefaults.standard.integer(forKey: "DifLevel")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DifLabel.text = "Сложность: \(diffarr[dif])"
+        
         ResetGame()
     }
 
