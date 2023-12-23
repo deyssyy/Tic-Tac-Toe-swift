@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         difficult.delegate = self
         difficult.dataSource = self
-        let temp = Int(defaults.string(forKey: "DifLevel") ?? "0")!
+        let temp = defaults.integer(forKey: "DifLevel")
         difficult.selectRow(temp, inComponent: 0, animated: true)
         headerLabel.layer.shadowColor = UIColor.black.cgColor
         headerLabel.layer.shadowRadius = 3.0

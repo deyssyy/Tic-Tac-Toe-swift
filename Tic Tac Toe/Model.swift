@@ -8,15 +8,10 @@
 import Foundation
 class Player{
     var move : [Int?] = [nil,nil,nil,nil,nil,nil,nil,nil,nil]
-    var IsHuman = true
     
-    func MakeMove(cell: Int, closure: ()->() ){
+    func MakeMove(cell: Int, closure: ()->()){
         move[cell] = cell
     closure()
     }
-}
-
-class Pc{
-    var move : [Int?] = [nil,nil,nil,nil,nil,nil,nil,nil,nil]
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var DifLabel: UILabel!
     @IBOutlet weak var button0: UIButton!
@@ -28,15 +28,29 @@ class ViewController: UIViewController {
     
     var WinningSet : Set<Set<Int>> = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
     var board = [0,0,0,0,0,0,0,0,0]
-    var player = Player()
-    var PC = Player()
+    
     var diffarr = ["Лёгкий","Нормальный","Сложный","Непобедимый"]
     let dif = UserDefaults.standard.integer(forKey: "DifLevel")
+    var IncomeSegueID = ""
+    var playerX = Player()
+    var playerO = Player()
+    var computer = false
+    var turn = "X"
+    @IBAction func abbba(_ sender: Any) {
+        Alert(title: "ggg", message: "asa", style: .alert)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DifLabel.text = "Сложность: \(diffarr[dif])"
-        
+        TurnImage.image = UIImage(named: "icons8-x-100")
+        if IncomeSegueID == "OnePlayer"{
+            TurnImage.isHidden = true
+            TurnLabel.isHidden = true
+            computer = true
+        }else{
+            DifLabel.isHidden = true
+        }
         ResetGame()
     }
 
@@ -45,50 +59,54 @@ class ViewController: UIViewController {
     }
     
     @IBAction func FiledButtonPressed(_ sender: UIButton) {
-        
-        player.MakeMove(cell: sender.tag){board[sender.tag] = 1}
-        images[sender.tag].image = UIImage(named: "icons8-x-100")
-        sender.isEnabled = false
-        for elem in buttons{
-            elem.isUserInteractionEnabled = false
-        }
-       if wincondition(player: player.move){
-            print("YOU WIN!")
-           let alert = UIAlertController(title: "Победа Игрока!", message: "Хотели бы вы начать заново?", preferredStyle: .alert)
-           let action = UIAlertAction(title: "Да!", style: .default){ _ in
-               self.ResetGame()
-           }
-           alert.addAction(action)
-           self.present(alert, animated: true)
-        
-       }else if CheckDraw(){
-           print("draw")
-           let alert = UIAlertController(title: "Ничья", message: "Хотели бы вы начать заново?", preferredStyle: .alert)
-           let action = UIAlertAction(title: "Да!", style: .default){ _ in
-               self.ResetGame()
-           }
-           alert.addAction(action)
-           self.present(alert, animated: true)
-       }
-     
-        else{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                let movePC = self.pcMove(board: self.board, player: self.player.move, PC: self.PC.move)
-                self.PC.MakeMove(cell: movePC){self.board[movePC] = 2}
-                self.images[movePC].image = UIImage(named: "icons8-o-100")
-                self.buttons[movePC].isEnabled = false
-                if self.wincondition(player: self.PC.move){
-                    print("PC WIN!")
-                    let alert = UIAlertController(title: "Победа Компьютера!", message: "Хотели бы вы начать заново?", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "Да!", style: .default){ _ in
-                        self.ResetGame()
+        if computer{
+            playerX.MakeMove(cell: sender.tag){board[sender.tag] = 1}
+            images[sender.tag].image = UIImage(named: "icons8-x-100")
+            sender.isEnabled = false
+            for elem in buttons{
+                elem.isUserInteractionEnabled = false
+            }
+            if wincondition(player: playerX.move){
+                Alert(title: "Победа игрока!", message: "Хотели бы вы начать заново?", style: .alert)
+            }else if CheckDraw(){
+                Alert(title: "Ничья", message: "Хотели бы вы начать заново?", style: .alert)
+            }
+            
+            else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    let movePC = self.pcMove(board: self.board, player: self.playerX.move, PC: self.playerO.move)
+                    self.playerO.MakeMove(cell: movePC){self.board[movePC] = 2}
+                    self.images[movePC].image = UIImage(named: "icons8-o-100")
+                    self.buttons[movePC].isEnabled = false
+                    if self.wincondition(player: self.playerO.move){
+                        self.Alert(title: "Победа компьютера!", message: "Хотели бы вы начать заново?", style: .alert)
                     }
-                    alert.addAction(action)
-                    self.present(alert, animated: true)
+                    for elem in self.buttons{
+                        elem.isUserInteractionEnabled = true
+                    }
                 }
-                for elem in self.buttons{
-                    elem.isUserInteractionEnabled = true
+            }
+        }else{
+            if turn == "X"{
+                turn = "O"
+                playerX.MakeMove(cell: sender.tag){board[sender.tag] = 1}
+                images[sender.tag].image = UIImage(named: "icons8-x-100")
+                sender.isEnabled = false
+                if wincondition(player: playerX.move){
+                    Alert(title: "Победа игрока X!", message: "Хотели бы вы начать заново?", style: .alert)
+                }else if CheckDraw(){
+                    Alert(title: "Ничья", message: "Хотели бы вы начать заново?", style: .alert)
                 }
+                TurnImage.image = UIImage(named: "icons8-o-100")
+            }else{
+                turn = "X"
+                playerO.MakeMove(cell: sender.tag){board[sender.tag] = 2}
+                images[sender.tag].image = UIImage(named: "icons8-o-100")
+                sender.isEnabled = false
+                if wincondition(player: playerO.move){
+                    Alert(title: "Победа игрока O!", message: "Хотели бы вы начать заново?", style: .alert)
+                }
+                TurnImage.image = UIImage(named: "icons8-x-100")
             }
         }
       
@@ -133,59 +151,6 @@ class ViewController: UIViewController {
         default:
             return RandomMove()
         }
-        
-        
-        
-        //ход для победы
-        /*
-        let movePC = Set(PC.compactMap{$0})
-        for elem in WinningSet{
-            let pos = elem.subtracting(movePC)
-            if pos.count == 1 && board[pos.first!] == 0{
-                return pos.first!
-            }
-        }
-         
-        if WinningMove(PC: PC) != nil {
-            move = WinningMove(PC: PC)!
-            return move
-        }
-        
-        //ход помешать победе игрока
-        /*
-        let moveplayer = Set(player.compactMap{$0})
-        for elem in WinningSet{
-            let pos = elem.subtracting(moveplayer)
-            if pos.count == 1 && board[pos.first!] == 0{
-                return pos.first!
-            }
-        }
-         */
-        if AbusePlayer(player: player) != nil {
-            move = AbusePlayer(player: player)!
-            return move
-        }
-       
-        //ход на центральную клетку
-        /*
-        if board[4] == 0{
-            return 4
-        }
-         */
-        if CenterMove() != nil {
-            move = CenterMove()!
-            return move
-        }
-        
-        //ход на рандомную клетку
-        /*
-        var move = Int.random(in: 0...8)
-        while board[move] != 0{
-            move = Int.random(in: 0...8)
-        }
-        */
-        return RandomMove()
-         */
     }
     
     private func RandomMove() -> Int{
@@ -249,9 +214,35 @@ class ViewController: UIViewController {
             buttons[i].isEnabled = true
             buttons[i].isUserInteractionEnabled = true
         }
+        turn = "X"
+        TurnImage.image = UIImage(named: "icons8-x-100")
         board = Array(repeating: 0, count: 9)
-        player.move = Array(repeating: nil, count: 9)
-        PC.move = Array(repeating: nil, count: 9)
+        playerX.move = Array(repeating: nil, count: 9)
+        playerO.move = Array(repeating: nil, count: 9)
+    }
+    
+    private func DrawBoard(){
+        for elem in board{
+            if elem == 1{
+                images[elem].image = UIImage(named: "icons8-x-100")
+            }else if elem == 2{
+                images[elem].image = UIImage(named: "icons8-o-100")
+            }
+        }
+    }
+   
+    private func Alert(title: String, message: String, style: UIAlertController.Style)
+    {
+        var alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        var alertactionYes = UIAlertAction(title: "Да", style: .default){_ in
+            self.ResetGame()
+        }
+        var alertactionNo = UIAlertAction(title: "Нет", style: .default){_ in
+            self.dismiss(animated: true)
+        }
+        alert.addAction(alertactionYes)
+        alert.addAction(alertactionNo)
+        self.present(alert, animated: true)
     }
 }
 

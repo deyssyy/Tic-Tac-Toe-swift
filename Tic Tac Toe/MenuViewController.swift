@@ -16,15 +16,16 @@ class MenuViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newGame.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
         newGame.imageView?.contentMode = .scaleAspectFill
         optionsButton.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
         aboutButton.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
-        if UserDefaults.standard.string(forKey: "DifLevel") == nil{
-            UserDefaults.standard.setValue("0", forKey: "DifLevel")
-        }
+       // if UserDefaults.standard.integer(forKey: "DifLevel") == nil{
+       //     UserDefaults.standard.setValue("0", forKey: "DifLevel")
+       // }
         // Do any additional setup after loading the view.
     }
     
