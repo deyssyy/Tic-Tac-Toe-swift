@@ -34,38 +34,6 @@
             endingLineNumber = "62"
             landmarkName = "FiledButtonPressed(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2A2834BF-9D88-47CC-BFC0-865F96D964D9 - 47fb168010dffd4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tic_Tac_Toe.MainViewController.FiledButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "Tic Tac Toe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nikita/Desktop/pet%20swift/Tic%20Tac%20Toe/Tic%20Tac%20Toe/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "492">
-               </Location>
-               <Location
-                  uuid = "2A2834BF-9D88-47CC-BFC0-865F96D964D9 - 47fb168010dffd4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tic_Tac_Toe.MainViewController.FiledButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "Tic Tac Toe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nikita/Desktop/pet%20swift/Tic%20Tac%20Toe/Tic%20Tac%20Toe/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "568">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

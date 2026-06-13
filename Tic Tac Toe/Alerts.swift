@@ -1,7 +1,4 @@
-
 import UIKit
-
-
 
 struct Alert{
 var title: String

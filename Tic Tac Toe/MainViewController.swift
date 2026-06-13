@@ -233,11 +233,11 @@ class MainViewController: UIViewController {
    
     private func Alert(title: String, message: String, style: UIAlertController.Style)
     {
-        var alert = UIAlertController(title: title, message: message, preferredStyle: style)
-        var alertactionYes = UIAlertAction(title: "Да", style: .default){_ in
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        let alertactionYes = UIAlertAction(title: "Да", style: .default){_ in
             self.ResetGame()
         }
-        var alertactionNo = UIAlertAction(title: "Нет", style: .default){_ in
+        let alertactionNo = UIAlertAction(title: "Нет", style: .default){_ in
             self.dismiss(animated: true)
         }
         alert.addAction(alertactionYes)

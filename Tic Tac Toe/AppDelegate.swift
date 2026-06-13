@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Tic Tac Toe
-//
-//  Created by nikita on 12.11.2023.
-//
-
 import UIKit
 
 @main

@@ -1,10 +1,3 @@
-//
-//  SettingsViewController.swift
-//  Tic Tac Toe
-//
-//  Created by nikita on 21.12.2023.
-//
-
 import UIKit
 
 class SettingsViewController: UIViewController {
