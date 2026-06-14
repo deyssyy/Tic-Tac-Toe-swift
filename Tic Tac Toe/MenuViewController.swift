@@ -76,11 +76,15 @@ class MenuViewController: UIViewController {
     
     @objc private func newGameButtonTapped(){
         let newVC = PlaChooseViewController()
+        newVC.modalPresentationStyle = .fullScreen
+        newVC.modalTransitionStyle = .crossDissolve
         present(newVC,animated: true)
     }
 
     @objc private func gameOptionsButtonTapped(){
         let newVC = SettingsViewController()
+        newVC.modalPresentationStyle = .fullScreen
+        newVC.modalTransitionStyle = .crossDissolve
         present(newVC, animated: true)
     }
 }
