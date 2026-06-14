@@ -1,36 +1,86 @@
-//
-//  MenuViewController.swift
-//  Tic Tac Toe
-//
-//  Created by nikita on 20.12.2023.
-//
-
 import UIKit
 
 class MenuViewController: UIViewController {
 
-    @IBOutlet weak var aboutButton: UIButton!
-    @IBOutlet weak var optionsButton: UIButton!
-    @IBOutlet weak var newGame: UIButton!
+    private let bgImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(resource: .BG)
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
+    private let newGameButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Новая Игра", for: .normal)
+        button.setBackgroundImage(UIImage(resource: .menuHighlighted), for: .normal)
+        button.layer.cornerRadius = 16
+        button.clipsToBounds = true
+        button.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 186).isActive = true
+        return button
+    }()
     
+    private let gameOptionsButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Настройки", for: .normal)
+        button.setBackgroundImage(UIImage(resource: .menuHighlighted), for: .normal)
+        button.layer.cornerRadius = 16
+        button.clipsToBounds = true
+        button.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 186).isActive = true
+        return button
+    }()
     
-    
-    
+    private let buttonsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        return stackView
+    }()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        newGame.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
-        newGame.imageView?.contentMode = .scaleAspectFill
-        optionsButton.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
-        aboutButton.setBackgroundImage(UIImage(named: "Menu-Highlighted"), for: .highlighted)
+        setupUI()
        // if UserDefaults.standard.integer(forKey: "DifLevel") == nil{
        //     UserDefaults.standard.setValue("0", forKey: "DifLevel")
        // }
-        // Do any additional setup after loading the view.
     }
     
+    private func setupUI(){
+        view.addSubview(bgImageView)
+        
+        buttonsStackView.addArrangedSubview(newGameButton)
+        buttonsStackView.addArrangedSubview(gameOptionsButton)
+        
+        view.addSubview(buttonsStackView)
+        
+        NSLayoutConstraint.activate([
+            bgImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            bgImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bgImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bgImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            buttonsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        gameOptionsButton.addTarget(self, action: #selector(gameOptionsButtonTapped), for: .touchUpInside)
+        newGameButton.addTarget(self, action: #selector(newGameButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func newGameButtonTapped(){
+        let newVC = PlaChooseViewController()
+        present(newVC,animated: true)
+    }
 
-    @IBAction func pressabout(_ sender: Any) {
-        print(UserDefaults.standard.string(forKey: "DifLevel")!)
+    @objc private func gameOptionsButtonTapped(){
+        let newVC = SettingsViewController()
+        present(newVC, animated: true)
     }
 }

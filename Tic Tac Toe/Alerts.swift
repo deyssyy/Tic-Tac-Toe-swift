@@ -5,4 +5,3 @@ var title: String
 var message: String
 var style: UIAlertController.Style
 }
-
