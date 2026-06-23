@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,10 +39,8 @@
 /* Begin PBXFrameworksBuildPhase section */
 		11E19FD42B0137C5006F863B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -95,8 +93,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "Tic Tac Toe";
 			productName = "Tic Tac Toe";
 			productReference = 11E19FD72B0137C5006F863B /* Tic Tac Toe.app */;
@@ -118,7 +114,6 @@
 				};
 			};
 			buildConfigurationList = 11E19FD22B0137C5006F863B /* Build configuration list for PBXProject "Tic Tac Toe" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -126,6 +121,7 @@
 				Base,
 			);
 			mainGroup = 11E19FCE2B0137C5006F863B;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 11E19FD82B0137C5006F863B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,20 +134,17 @@
 /* Begin PBXResourcesBuildPhase section */
 		11E19FD52B0137C5006F863B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				11E19FE72B0137C6006F863B /* LaunchScreen.storyboard in Resources */,
 				11E19FE42B0137C6006F863B /* Assets.xcassets in Resources */,
 				11E19FE22B0137C5006F863B /* Main.storyboard in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11E19FD32B0137C5006F863B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				11E19FDF2B0137C5006F863B /* MainViewController.swift in Sources */,
 				119679E82B33557000793FF7 /* MenuViewController.swift in Sources */,
@@ -162,7 +155,6 @@
 				11E19FDD2B0137C5006F863B /* SceneDelegate.swift in Sources */,
 				119679E42B20EF4C00793FF7 /* Model.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -186,7 +178,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		11E19FE92B0137C6006F863B /* Debug */ = {
+		11E19FE92B0137C6006F863B /* Debug configuration for PBXProject "Tic Tac Toe" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -247,7 +239,7 @@
 			};
 			name = Debug;
 		};
-		11E19FEA2B0137C6006F863B /* Release */ = {
+		11E19FEA2B0137C6006F863B /* Release configuration for PBXProject "Tic Tac Toe" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -302,7 +294,7 @@
 			};
 			name = Release;
 		};
-		11E19FEC2B0137C6006F863B /* Debug */ = {
+		11E19FEC2B0137C6006F863B /* Debug configuration for PBXNativeTarget "Tic Tac Toe" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -332,7 +324,7 @@
 			};
 			name = Debug;
 		};
-		11E19FED2B0137C6006F863B /* Release */ = {
+		11E19FED2B0137C6006F863B /* Release configuration for PBXNativeTarget "Tic Tac Toe" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -368,19 +360,17 @@
 		11E19FD22B0137C5006F863B /* Build configuration list for PBXProject "Tic Tac Toe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11E19FE92B0137C6006F863B /* Debug */,
-				11E19FEA2B0137C6006F863B /* Release */,
+				11E19FE92B0137C6006F863B /* Debug configuration for PBXProject "Tic Tac Toe" */,
+				11E19FEA2B0137C6006F863B /* Release configuration for PBXProject "Tic Tac Toe" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		11E19FEB2B0137C6006F863B /* Build configuration list for PBXNativeTarget "Tic Tac Toe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11E19FEC2B0137C6006F863B /* Debug */,
-				11E19FED2B0137C6006F863B /* Release */,
+				11E19FEC2B0137C6006F863B /* Debug configuration for PBXNativeTarget "Tic Tac Toe" */,
+				11E19FED2B0137C6006F863B /* Release configuration for PBXNativeTarget "Tic Tac Toe" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */

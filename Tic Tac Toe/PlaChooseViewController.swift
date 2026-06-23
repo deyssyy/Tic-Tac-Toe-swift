@@ -80,15 +80,27 @@ class PlaChooseViewController: UIViewController {
         ])
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        newGameButton.addTarget(self, action: #selector(onePlayerTapped), for: .touchUpInside)
+        gameOptionsButton.addTarget(self, action: #selector(twoPlayerTapped), for: .touchUpInside)
     }
     
     @objc private func backButtonTapped(){
         dismiss(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let ID = segue.identifier else {return}
-        let newVc = segue.destination as! MainViewController
-            newVc.IncomeSegueID = ID
+    @objc private func onePlayerTapped(){
+        let vc = MainViewController()
+        vc.incomeSegueID = "OnePlayer"
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc,animated: true)
+    }
+    
+    @objc private func twoPlayerTapped(){
+        let vc = MainViewController()
+        vc.incomeSegueID = "TwoPlayer"
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc,animated: true)
     }
 }
